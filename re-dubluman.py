@@ -6,6 +6,7 @@ from demucs.apply import apply_model
 
 # Load the Demucs model
 model = pretrained.get_model('htdemucs')
+torchaudio.set_audio_backend("sox_io")
 
 # Define the extract_sounds function to extract sources separately
 def extract_sounds(audio_path):
