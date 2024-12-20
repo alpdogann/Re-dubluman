@@ -4,25 +4,29 @@ import torch
 import streamlit as st
 from demucs.apply import apply_model
 import soundfile
+import io
 
 # Load the Demucs model
 model = pretrained.get_model('htdemucs')
 
 # Define the extract_sounds function to extract sources separately
-def extract_sounds(audio_path):
+def extract_sounds(audio_bytes):
     """
     Extract the sources (vocals and other elements) separately from the audio file.
 
     Parameters:
-    - audio_path (str): Path to the audio file.
+    - audio_bytes (bytes): The audio file in byte form.
 
     Returns:
     - vocals (Tensor): The separated vocal track.
     - other_elements (list of Tensors): The separated other audio elements (instruments, etc.).
     - sample_rate (int): The sample rate of the audio.
     """
+    # Use BytesIO to read the audio file from the byte stream
+    audio_buffer = io.BytesIO(audio_bytes)
+
     # Load the audio file
-    waveform, sample_rate = torchaudio.load(audio_path, normalize=True, backend="soundfile")
+    waveform, sample_rate = torchaudio.load(audio_buffer, normalize=True, backend="soundfile")
 
     # Extract the sources and identify vocals
     with torch.no_grad():
@@ -95,7 +99,7 @@ def save_combined_audio(combined_waveform, sample_rate, output_path):
 st.title("Re-Dublüman")
 
 # File uploader for the user to upload an audio file
-uploaded_audio = st.file_uploader("Choose an audio file", type=["mp3", "wav"])
+uploaded_audio = st.file_uploader("Choose an audio file", type=["wav"])
 
 if uploaded_audio is not None:
     # Sliders for vocal and other elements gain
@@ -105,11 +109,10 @@ if uploaded_audio is not None:
     # Display a button to apply the adjustments
     if st.button("Apply Adjustments"):
         # Process the audio after the button is clicked
-        with open("temp_audio_file.wav", "wb") as f:
-            f.write(uploaded_audio.read())
+        audio_bytes = uploaded_audio.read()
 
         # Extract sources using the updated Demucs method
-        vocals, other_elements, sample_rate = extract_sounds("temp_audio_file.wav")
+        vocals, other_elements, sample_rate = extract_sounds(audio_bytes)
 
         # Apply the gain adjustments
         vocals = apply_gain(vocals, vocal_gain_db)  # Apply vocal gain ONLY to the vocals
@@ -125,4 +128,3 @@ if uploaded_audio is not None:
         # Provide a link to download the output file
         st.audio(output_path)
         st.download_button("Download the combined audio", output_path)
-
