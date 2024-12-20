@@ -2,4 +2,4 @@ demucs
 torchaudio
 torch
 streamlit
-numpy
+demucs.apply
