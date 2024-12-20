@@ -7,7 +7,6 @@ import soundfile
 
 # Load the Demucs model
 model = pretrained.get_model('htdemucs')
-torchaudio.set_audio_backend("soundfile")
 
 # Define the extract_sounds function to extract sources separately
 def extract_sounds(audio_path):
@@ -23,7 +22,7 @@ def extract_sounds(audio_path):
     - sample_rate (int): The sample rate of the audio.
     """
     # Load the audio file
-    waveform, sample_rate = torchaudio.load(audio_path, normalize=True)
+    waveform, sample_rate = torchaudio.load(audio_path, normalize=True, backend="soundfile")
 
     # Extract the sources and identify vocals
     with torch.no_grad():
