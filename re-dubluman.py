@@ -91,7 +91,7 @@ def save_combined_audio(combined_waveform, sample_rate, output_path):
     torchaudio.save(output_path, combined_waveform, sample_rate)
 
 # Streamlit UI
-st.title("Audio Source Separation and Mixing")
+st.title("Re-Dublüman")
 
 # File uploader for the user to upload an audio file
 uploaded_audio = st.file_uploader("Choose an audio file", type=["mp3", "wav"])
