@@ -1,20 +1,31 @@
 # Re-Dublüman
 
-Bu proje, ünlü Türk müzik grubu Dedublüman'ın şarkılarındaki vokalleri daha duyulabilir bir hale getirme isteğimden doğmuştur. Amacım, şarkılarda vokallerin daha net bir şekilde duyulmasını sağlamak. Bu nedenle, projeye "Re-Dublüman" adını verdim.
+This project was born out of my desire to make the vocals in the songs of the famous Turkish music group Dedublüman more audible. My goal is to make the vocals in the songs more clearly heard. For this reason, I named the project 'Re-Dublüman'
 
-### Proje Hakkında
-Re-Dublüman, müzik parçalarındaki vokalleri ve diğer enstrümanları ayıran bir araçtır. Bu araç, Demucs adlı bir ses ayırma modelini kullanarak ses kaynaklarını ayırır ve ardından vokal ve diğer sesler için ayrı ayrı ses seviyesi ayarları yapmanıza olanak tanır. Proje, Streamlit üzerinde barındırılmakta olup, kullanıcıların ses dosyalarını yükleyip hemen işlem yapabilmelerine imkan verir.
+### About Project
+Re-Dublüman is a tool that separates vocals and other instruments in music tracks. This tool uses a sound separation model called Demucs to separate the audio sources, and then allows you to make separate volume adjustments for vocals and other sounds. The project is hosted on Streamlit, enabling users to upload audio files and process them instantly
 
-### Kullanım
+To run this project, follow the steps below:
 
-1. Web uygulamasına gidin.
-2. Bir ses dosyası yükleyin.
-3. Vokal ve diğer elementler için ses seviyesi ayarlarını yapın.
-4. İşlem tamamlandığında, karışık ses dosyasını indirin.
+### 1. **Clone the Repository**
 
-**Not:** Streamlit linki buraya eklenecek.
+First, clone the repository to your local machine:
 
-### Gereksinimler
+```bash
+git clone https://github.com/your-username/re-dubluman.git
+cd re-dubluman
+```
 
-Proje için gerekli olan Python paketleri `requirements.txt` dosyasına aşağıda yer verilmiştir:
+### 2. **Install Dependencies**
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+### 3. **Run the Streamlit App**
+```bash
+streamlit run re-dubluman.py
+```
+### 4. **Upload Your Audio**
+In the Streamlit app, you can upload an audio file in MP3 or WAV format, adjust the vocal and other elements' gain, and listen to the processed output.
 
