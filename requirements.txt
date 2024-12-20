@@ -2,4 +2,3 @@ demucs
 torchaudio
 torch
 streamlit
-demucs.apply
