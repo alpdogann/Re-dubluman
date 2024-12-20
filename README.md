@@ -3,7 +3,7 @@
 This project was born out of my urge to make the vocals in the songs of the famous Turkish music group Dedublüman more audible. The goal is to make the vocals in the songs more clearly heard. For this reason, I named the project 'Re-Dublüman'
 
 ### About Project
-Re-Dublüman is a tool that separates vocals and other instruments in music tracks. This tool uses a sound separation model called Demucs to separate the audio sources, and then allows you to make separate volume adjustments for vocals and other sounds. The project is hosted on [Streamlit](https://re-dubluman.streamlit.app), enabling users to upload audio files and process them instantly
+Re-Dublüman is a tool that separates vocals and other instruments in music tracks. This tool uses a sound separation model called [Demucs](https://github.com/facebookresearch/demucs) to separate the audio sources, and then allows you to make separate volume adjustments for vocals and other sounds. The project is hosted on [Streamlit](https://re-dubluman.streamlit.app), enabling users to upload audio files and process them instantly
 
 To run this project, follow the steps below:
 
