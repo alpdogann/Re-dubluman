@@ -99,27 +99,31 @@ st.title("Re-Dublüman")
 uploaded_audio = st.file_uploader("Choose an audio file", type=["mp3", "wav"])
 
 if uploaded_audio is not None:
+    # Sliders for vocal and other elements gain
     vocal_gain_db = st.slider("Vocal Gain (dB)", -12, 12, 12)
     other_gain_db = st.slider("Other Elements Gain (dB)", -12, 12, -12)
 
-    # Process the audio and adjust the gain
-    with open("temp_audio_file.wav", "wb") as f:
-        f.write(uploaded_audio.read())
+    # Display a button to apply the adjustments
+    if st.button("Apply Adjustments"):
+        # Process the audio after the button is clicked
+        with open("temp_audio_file.wav", "wb") as f:
+            f.write(uploaded_audio.read())
 
-    # Extract sources using the updated Demucs method
-    vocals, other_elements, sample_rate = extract_sounds("temp_audio_file.wav")
+        # Extract sources using the updated Demucs method
+        vocals, other_elements, sample_rate = extract_sounds("temp_audio_file.wav")
 
-    # Apply the gain adjustments
-    vocals = apply_gain(vocals, vocal_gain_db)  # Apply vocal gain ONLY to the vocals
-    other_elements = [apply_gain(elem, other_gain_db) for elem in other_elements]  # Apply other_gain_db to all non-vocal elements
+        # Apply the gain adjustments
+        vocals = apply_gain(vocals, vocal_gain_db)  # Apply vocal gain ONLY to the vocals
+        other_elements = [apply_gain(elem, other_gain_db) for elem in other_elements]  # Apply other_gain_db to all non-vocal elements
 
-    # Combine the sources back together
-    combined_waveform = combine_sources(vocals, other_elements, sample_rate)
+        # Combine the sources back together
+        combined_waveform = combine_sources(vocals, other_elements, sample_rate)
 
-    # Save the combined audio
-    output_path = "combined_output.wav"
-    save_combined_audio(combined_waveform, sample_rate, output_path)
+        # Save the combined audio
+        output_path = "combined_output.wav"
+        save_combined_audio(combined_waveform, sample_rate, output_path)
 
-    # Provide a link to download the output file
-    st.audio(output_path)
-    st.download_button("Download the combined audio", output_path)
+        # Provide a link to download the output file
+        st.audio(output_path)
+        st.download_button("Download the combined audio", output_path)
+
