@@ -1,4 +1,5 @@
 demucs
 torchaudio
 torch
+sox
 streamlit
