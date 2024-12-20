@@ -3,10 +3,11 @@ import torchaudio
 import torch
 import streamlit as st
 from demucs.apply import apply_model
+import soundfile
 
 # Load the Demucs model
 model = pretrained.get_model('htdemucs')
-torchaudio.set_audio_backend("sox_io")
+torchaudio.set_audio_backend("soundfile")
 
 # Define the extract_sounds function to extract sources separately
 def extract_sounds(audio_path):
