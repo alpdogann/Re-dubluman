@@ -1,9 +1,9 @@
-# Re-Dubluman
+# Re-Dublüman
 
-Bu proje, ünlü Türk müzik grubu Dedublüman'ın şarkılarındaki vokalleri daha duyulabilir bir hale getirme isteğimden doğmuştur. Amacım, şarkılarda vokallerin daha net bir şekilde duyulmasını sağlamak. Bu nedenle, projeye "Re-Dubluman" adını verdim.
+Bu proje, ünlü Türk müzik grubu Dedublüman'ın şarkılarındaki vokalleri daha duyulabilir bir hale getirme isteğimden doğmuştur. Amacım, şarkılarda vokallerin daha net bir şekilde duyulmasını sağlamak. Bu nedenle, projeye "Re-Dublüman" adını verdim.
 
 ### Proje Hakkında
-Re-Dubluman, müzik parçalarındaki vokalleri ve diğer enstrümanları ayıran bir araçtır. Bu araç, Demucs adlı bir ses ayırma modelini kullanarak ses kaynaklarını ayırır ve ardından vokal ve diğer sesler için ayrı ayrı ses seviyesi ayarları yapmanıza olanak tanır. Proje, Streamlit üzerinde barındırılmakta olup, kullanıcıların ses dosyalarını yükleyip hemen işlem yapabilmelerine imkan verir.
+Re-Dublüman, müzik parçalarındaki vokalleri ve diğer enstrümanları ayıran bir araçtır. Bu araç, Demucs adlı bir ses ayırma modelini kullanarak ses kaynaklarını ayırır ve ardından vokal ve diğer sesler için ayrı ayrı ses seviyesi ayarları yapmanıza olanak tanır. Proje, Streamlit üzerinde barındırılmakta olup, kullanıcıların ses dosyalarını yükleyip hemen işlem yapabilmelerine imkan verir.
 
 ### Kullanım
 
