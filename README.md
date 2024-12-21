@@ -12,7 +12,7 @@ To run this project, follow the steps below:
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/re-dubluman.git
+git clone https://github.com/alpdogann/re-dubluman.git
 cd re-dubluman
 ```
 
